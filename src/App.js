@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import { Button } from 'react-bootstrap';
+import Navegacion from './components/NavBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CartWidget from './components/CartWidget';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
+
+  let saludo = {msj: "Hola bienvenido"};
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navegacion />
+      
+      <ItemListContainer mensaje = {saludo}/>
+
+      
     </div>
   );
 }
