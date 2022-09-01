@@ -27,7 +27,7 @@ function App() {
       
       <ItemListContainer mensaje = {saludo}/>
 
-      <ItemCount stock={10} initial={1} onAdd={onAddfunction}/>
+      <ItemCount stock={10} initial={0} onAdd={onAddfunction}/>
 
       <Producto />
 
