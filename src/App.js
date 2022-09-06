@@ -7,6 +7,7 @@ import CartWidget from './components/CartWidget';
 import ItemListContainer from './components/ItemListContainer';
 import ItemCount from './components/ItemCount';
 import Producto from './components/Producto';
+import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 
 function onAddfunction (valor) {
   return (
@@ -25,9 +26,11 @@ function App() {
     <div>
       <Navegacion />
       
-      <ItemListContainer mensaje = {saludo}/>
+      {/*<ItemListContainer mensaje = {saludo}/>*/}
 
-      <ItemCount stock={10} initial={0} onAdd={onAddfunction}/>
+      <ItemDetailContainer />
+
+      {/*<ItemCount stock={10} initial={0} onAdd={onAddfunction}/>*/}
 
       <Producto />
 
