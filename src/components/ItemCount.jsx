@@ -1,7 +1,7 @@
 import { isDisabled } from '@testing-library/user-event/dist/utils';
 import React, {useState , useEffect} from 'react'
 
-export default function ItemCount( {stock, initial, onAdd}) {
+export default function ItemCount( {stock, initial, cart}) {
   
     const [contador, setContador] = useState(initial);
 
@@ -17,7 +17,7 @@ export default function ItemCount( {stock, initial, onAdd}) {
                 <div><button 
                     disabled = {contador === initial}
                     onClick={()=>{
-                    onAdd(contador)
+                    cart(contador)
                 }}>Agregar al carrito</button></div>
 
                 <button

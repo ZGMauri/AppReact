@@ -1,12 +1,14 @@
 import React, {useState , useEffect} from 'react'
 import Item from './Item'
+import ItemCount from '../ItemCount';
+
 
 const ItemDetail = ({producto}) => {
+  function onAdd (quantityToAdd) {
+    alert ('Recibido de itemCount ' + quantityToAdd)
+  }
   return (
-    <div>
-      <h2>Detalle del producto:{producto.name}</h2>
-      <p>{producto.description}</p>
-    </div>
+    <ItemCount stock={10} initial={1} cart={onAdd}/>
   )
 }
 

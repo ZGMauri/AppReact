@@ -31,7 +31,7 @@ function App() {
       <ItemDetailContainer />
 
       <Producto />
-      <ItemCount stock={10} initial={1} onAdd={onAddfunction}/>
+      {/*<ItemCount stock={10} initial={1} onAdd={onAddfunction}/>*/}
       
     </div>
   );
