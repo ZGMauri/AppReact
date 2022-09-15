@@ -1,43 +1,44 @@
 import React, {useState , useEffect} from 'react'
 import ItemList from './ItemList';
-import fotoCamisa from '../img/camisa.jpg';
-import fotoZapato from '../img/zapatos.jpg';
-import fotoTraje from '../img/traje.jpg';
+import fotoReal from '../img/real.jpg';
+import fotoCity from '../img/city.jpg';
+import fotoBayern from '../img/bayern.jpg';
+import fotoArsenal from '../img/arsenal.jpg';
+import { useParams } from 'react-router-dom'
 
+const productosHC = [
+  {idproduct: 100, title: 'camiseta Real Madrid', description: 'camiseta futbol 2022', price: 170, pictureURL: <img src={ fotoReal } alt='algo'></img>, idcategory: 'ligaespañola'},
+  {idproduct: 101, title: 'camiseta Manchester City', description: 'camiseta futbol 2022', price: 200, pictureURL: <img src={ fotoCity } alt='algo'></img>, idcategory: 'ligainglesa'},
+  {idproduct: 102, title: 'camiseta Arsenal', description: 'camiseta futbol 2022', price: 150, pictureURL: <img src={ fotoArsenal } alt='algo'></img>, idcategory: 'ligainglesa'},
+  {idproduct: 102, title: 'camiseta Bayern Munich', description: 'camiseta futbol 2022', price: 150, pictureURL: <img src={ fotoBayern } alt='algo'></img>, idcategory: 'ligaalemana'},
+];
 
 export default function ItemListContainer() {
-  const [loading, setLoading] = useState(true);
-  const [productos, setProductos] = useState([]);
-  const [error, setError] = useState('');
+  const {idcategory, idproduct} = useParams();
+
+  const [productos, setProductos] = useState();
+  
 
   useEffect (() => {
-    let promesasProductos = new Promise((resolve, reject) => {
-       setTimeout(() => {
-          resolve ([
-            {id: 100, title: 'camisa', description: 'camisa blanca formal', price: 100, pictureURL: <img src={ fotoCamisa } alt='algo'></img> },
-            {id: 101, title: 'zapato', description: 'zapatos de vestir color negro', price: 200, pictureURL: <img src={ fotoZapato } alt='algo'></img>},
-            {id: 102, title: 'saco', description: 'saco de traje con pantalon incluido', price: 150, pictureURL: <img src={ fotoTraje } alt='algo'></img>},
-          ]);
-       }, 2000);
-    })
+    if (!idcategory){
+      setProductos(productosHC);
+    }else {
+      setProductos(productosHC.filter((product) => product.idcategory === idcategory))
+    }
+    }, [idcategory]);
 
-  promesasProductos
-    .then ((res) =>{
-      setProductos(res)
-    })
-    .catch ((err) =>{
-      setError (err)
-    })
-    .finally (() =>{
-      setLoading(false)
-    })
-  }, [])
+    useEffect (() => {
+      if (!idproduct){
+        setProductos(productosHC);
+      }else {
+        setProductos(productosHC.filter((product) => product.idproduct === idproduct))
+      }
+      }, [idproduct]);
+
 
   return (
     <div>
-      <p>Loading: {loading ? 'loading..' : 'fin'}</p>
-      <p>Error: {error ? error : null}</p>
-      <ItemList item = {productos}/>
+      {<ItemList item = {productos}/>}
     </div>
   )
 }

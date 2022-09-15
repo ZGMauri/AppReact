@@ -2,6 +2,7 @@ import React, {useState , useEffect} from 'react'
 import { data } from '../../mock/DataBase';
 import ItemDetail from './ItemDetail';
 
+
 const ItemDetailContainer = () => {
   const[producto, setProducto]= useState({})
   useEffect(()=>{
