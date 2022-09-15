@@ -12,7 +12,13 @@ export default function NavBar() {
       <br />
       <Link to='/category/ligaalemana'>Liga Alemana</Link>
       <br />
-      <Link to='/product/id'>Producto por id</Link>
+      <Link to='/product/100'>Producto por id</Link>
+      <br />
+      <Link to='/product/101'>Producto por id</Link>
+      <br />
+      <Link to='/product/102'>Producto por id</Link>
+      <br />
+      <Link to='/product/103'>Producto por id</Link>
     </div>
   )
 }
