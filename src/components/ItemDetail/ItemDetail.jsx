@@ -8,7 +8,13 @@ const ItemDetail = ({producto}) => {
     alert ('Recibido de itemCount ' + quantityToAdd)
   }
   return (
+    <>
+
+    <p>{producto.name}</p>
+
     <ItemCount stock={10} initial={1} cart={onAdd}/>
+
+    </>
   )
 }
 
