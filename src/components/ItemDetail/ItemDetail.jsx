@@ -10,7 +10,9 @@ const ItemDetail = ({producto}) => {
   return (
     <>
 
+    <p>{producto.id}</p>
     <p>{producto.name}</p>
+    <p>{producto.description}</p>
 
     <ItemCount stock={10} initial={1} cart={onAdd}/>
 
